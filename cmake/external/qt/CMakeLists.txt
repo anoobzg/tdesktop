@@ -12,38 +12,38 @@ add_subdirectory(qt_static_plugins)
 if (DESKTOP_APP_USE_PACKAGED)
     target_link_libraries(external_qt
     INTERFACE
-        Qt::Core
-        Qt::CorePrivate
-        Qt::Gui
-        Qt::GuiPrivate
-        Qt::Widgets
-        Qt::WidgetsPrivate
-        Qt::Network
-        Qt::Svg
+        Qt${QT_VERSION_MAJOR}::Core
+        Qt${QT_VERSION_MAJOR}::CorePrivate
+        Qt${QT_VERSION_MAJOR}::Gui
+        Qt${QT_VERSION_MAJOR}::GuiPrivate
+        Qt${QT_VERSION_MAJOR}::Widgets
+        Qt${QT_VERSION_MAJOR}::WidgetsPrivate
+        Qt${QT_VERSION_MAJOR}::Network
+        Qt${QT_VERSION_MAJOR}::Svg
     )
 
-    if (TARGET Qt::OpenGL)
-        target_link_libraries(external_qt INTERFACE Qt::OpenGL)
+    if (TARGET Qt${QT_VERSION_MAJOR}::OpenGL)
+        target_link_libraries(external_qt INTERFACE Qt${QT_VERSION_MAJOR}::OpenGL)
     endif()
 
-    if (TARGET Qt::OpenGLWidgets)
-        target_link_libraries(external_qt INTERFACE Qt::OpenGLWidgets)
+    if (TARGET Qt${QT_VERSION_MAJOR}::OpenGLWidgets)
+        target_link_libraries(external_qt INTERFACE Qt${QT_VERSION_MAJOR}::OpenGLWidgets)
     endif()
 
-    if (TARGET Qt::DBus)
-        target_link_libraries(external_qt INTERFACE Qt::DBus)
+    if (TARGET Qt${QT_VERSION_MAJOR}::DBus)
+        target_link_libraries(external_qt INTERFACE Qt${QT_VERSION_MAJOR}::DBus)
     endif()
 
-    if (TARGET Qt::Quick)
-        target_link_libraries(external_qt INTERFACE Qt::Quick)
+    if (TARGET Qt${QT_VERSION_MAJOR}::Quick)
+        target_link_libraries(external_qt INTERFACE Qt${QT_VERSION_MAJOR}::Quick)
     endif()
 
-    if (TARGET Qt::QuickWidgets)
-        target_link_libraries(external_qt INTERFACE Qt::QuickWidgets)
+    if (TARGET Qt${QT_VERSION_MAJOR}::QuickWidgets)
+        target_link_libraries(external_qt INTERFACE Qt${QT_VERSION_MAJOR}::QuickWidgets)
     endif()
 
-    if (TARGET Qt::WaylandCompositor)
-        target_link_libraries(external_qt INTERFACE Qt::WaylandCompositor)
+    if (TARGET Qt${QT_VERSION_MAJOR}::WaylandCompositor)
+        target_link_libraries(external_qt INTERFACE Qt${QT_VERSION_MAJOR}::WaylandCompositor)
     endif()
 
     return()

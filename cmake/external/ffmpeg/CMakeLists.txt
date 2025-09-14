@@ -8,16 +8,21 @@ add_library(external_ffmpeg INTERFACE IMPORTED GLOBAL)
 add_library(desktop-app::external_ffmpeg ALIAS external_ffmpeg)
 
 if (DESKTOP_APP_USE_PACKAGED OR LINUX)
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(DESKTOP_APP_FFMPEG REQUIRED IMPORTED_TARGET
-        libavcodec
-        libavfilter
-        libavformat
-        libavutil
-        libswresample
-        libswscale
-    )
-    target_link_libraries(external_ffmpeg INTERFACE PkgConfig::DESKTOP_APP_FFMPEG)
+    find_package(PkgConfig)
+    if(PkgConfig_FOUND)
+        pkg_check_modules(DESKTOP_APP_FFMPEG REQUIRED IMPORTED_TARGET
+            libavcodec
+            libavfilter
+            libavformat
+            libavutil
+            libswresample
+            libswscale
+        )
+        target_link_libraries(external_ffmpeg INTERFACE PkgConfig::DESKTOP_APP_FFMPEG)
+    else()
+        find_package(ffmpeg REQUIRED)
+        target_link_libraries(external_ffmpeg INTERFACE ffmpeg::ffmpeg)
+    endif()
     return()
 endif()
 
