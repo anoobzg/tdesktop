@@ -8,12 +8,18 @@ cmake_minimum_required(VERSION 3.25...3.31)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+include(cmake_tools/entry/desktop-cpp.cmake)
+__install_conan_requirements(MSVC_RUNTIME "dynamic")
+
+add_subdirectory(tg_owt)
+
+add_subdirectory(rnnoise)
+
+add_subdirectory(td)
+
 include(cmake/validate_special_target.cmake)
 include(cmake/version.cmake)
 desktop_app_parse_version(Telegram/build/version)
-
-include(cmake_tools/entry/desktop-cpp.cmake)
-__install_conan_requirements(MSVC_RUNTIME "dynamic")
 
 project(Telegram
     LANGUAGES C CXX

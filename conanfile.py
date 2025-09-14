@@ -15,6 +15,9 @@ class LightMaker(ConanFile):
         self.requires("gtest/1.15.0")
         self.requires("zlib/1.3.1")
         self.requires("openssl/3.3.1")
+        self.requires("openh264/2.4.1")
+        self.requires("libvpx/1.14.1")
+        self.requires("opus/1.3.1")
 
     def generate(self):
         tc = CMakeToolchain(self)

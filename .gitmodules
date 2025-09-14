@@ -91,3 +91,9 @@
 [submodule "cmake_tools"]
 	path = cmake_tools
 	url = https://github.com/anoobzg/cmake_tools.git
+[submodule "rnnoise"]
+	path = rnnoise
+	url = https://github.com/anoobzg/rnnoise.git
+[submodule "td"]
+	path = td
+	url = https://github.com/anoobzg/td.git
