@@ -1,0 +1,63 @@
+{
+  "version": 7,
+  "configurePresets": [
+    {
+      "name": "base",
+      "description": "For more information: http://aka.ms/cmakepresetsvs",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/out/${presetName}/build/",
+      "installDir": "${sourceDir}/out/${presetName}/install/",
+      "displayName": "${presetName}"        
+    },
+    {
+      "name": "debug-base",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release-base",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "ninja-debug",
+      "inherits": "debug-base",
+      "generator": "Ninja",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "ninja-release",
+      "inherits": "release-base",
+      "generator": "Ninja",
+      "cacheVariables": {
+      }
+    },
+    {
+      "name": "vs2022-debug",
+      "inherits": "debug-base",
+      "generator": "Visual Studio 17 2022"
+    },
+    {
+      "name": "vs2022-release",
+      "inherits": "release-base",
+      "generator": "Visual Studio 17 2022"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "ninja-debug",
+      "configurePreset": "ninja-debug"
+    },
+    {
+      "name": "ninja-release",
+      "configurePreset": "ninja-release"
+    }
+  ]
+}

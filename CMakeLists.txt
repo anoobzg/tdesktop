@@ -12,6 +12,9 @@ include(cmake/validate_special_target.cmake)
 include(cmake/version.cmake)
 desktop_app_parse_version(Telegram/build/version)
 
+include(cmake_tools/entry/desktop-cpp.cmake)
+__install_conan_requirements(MSVC_RUNTIME "dynamic")
+
 project(Telegram
     LANGUAGES C CXX
     VERSION ${desktop_app_version_cmake}
@@ -31,6 +34,8 @@ get_filename_component(cmake_helpers_loc "cmake" REALPATH)
 
 if (NOT DESKTOP_APP_USE_PACKAGED AND WIN32)
     set(Python3_EXECUTABLE ${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/python/Scripts/python)
+else()
+    message(STATUS "DESKTOP_APP_USE_PACKAGED is ON")
 endif()
 
 include(cmake/variables.cmake)
