@@ -139,6 +139,7 @@ INTERFACE
     Crypt32
     Propsys
     Bcrypt
+    windowsapp
 )
 
 if (build_winstore)

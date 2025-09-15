@@ -15,8 +15,6 @@ add_subdirectory(tg_owt)
 
 add_subdirectory(rnnoise)
 
-add_subdirectory(td)
-
 include(cmake/validate_special_target.cmake)
 include(cmake/version.cmake)
 desktop_app_parse_version(Telegram/build/version)
@@ -57,6 +55,8 @@ include(cmake/target_prepare_qrc.cmake)
 
 include(cmake/options.cmake)
 include(cmake/external/qt/package.cmake)
+
+add_subdirectory(td)
 
 set(desktop_app_skip_libs
     glibmm
